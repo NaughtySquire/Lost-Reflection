@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class test : MonoBehaviour
+public class SwipeHandler : MonoBehaviour
 {
     public static event OnSwipeInput SwipeEvent;
     public delegate void OnSwipeInput(Vector2 direction);
@@ -72,7 +72,7 @@ public class test : MonoBehaviour
             if(SwipeEvent != null)
             {
                 if (Mathf.Abs(swipeDelta.x) > Mathf.Abs(swipeDelta.y))
-                    SwipeEvent(swipeDelta.y > 0 ? Vector2.right : Vector2.left);
+                    SwipeEvent(swipeDelta.x > 0 ? Vector2.right : Vector2.left);
                 else
                     SwipeEvent(swipeDelta.y > 0 ? Vector2.up : Vector2.down);
             }
